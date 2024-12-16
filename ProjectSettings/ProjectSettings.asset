@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 67db74122786d674d81c4c57e93b7434
+  productGUID: 18b25c46d5c87e7429fcd209761fc834
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Square Fall
+  productName: SquareFall2D
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -723,14 +723,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Square Fall
+  metroPackageName: SquareFall2D
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Square Fall
+  metroApplicationDescription: SquareFall2D
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -799,10 +799,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: b12b4653-97a6-4d57-8e65-703e8f1fe78f
+  cloudProjectId: 13033134-8374-4c39-b51e-9e7a0e7945c2
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Square Fall
+  projectName: SquareFall2D
   organizationId: vraj_kachhadiya
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
