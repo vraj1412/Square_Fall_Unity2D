@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class SphareScreenUiManager : MonoBehaviour
 {
-
+    [Header("SettingPopUp")]
+    public GameObject SettingPopUp;
+    [Space]
     [Header("Slider")]
     public Slider SoundSlider;
     public Slider MusicSlider;
@@ -43,6 +45,17 @@ public class SphareScreenUiManager : MonoBehaviour
         Ref_SoundAndMusicManager.PlayMusic(BgMusic_Clip);
     }
 
+    #region SettingPopUP Open Close
+    public void OpenSetting()
+    {
+        SettingPopUp.SetActive(true);
+    }
+    public void CloseSetting()
+    {
+        SettingPopUp.SetActive(false);
+    }
+
+    #endregion
     #region Sound And Music Function
     public void Sound_Slidar()
     {
@@ -151,4 +164,6 @@ public class SphareScreenUiManager : MonoBehaviour
 
     }
     #endregion
+
+
 }

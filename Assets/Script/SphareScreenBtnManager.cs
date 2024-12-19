@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class SphareScreenBtnManager : MonoBehaviour
 {
     public SphareScreenUiManager Ref_SplashScreenUiManagar;
-
     public SoundAndMusicManager soundandmusic;
+
+    
 
     public void Start()
     {
@@ -22,6 +23,12 @@ public class SphareScreenBtnManager : MonoBehaviour
             case "start":
                 SceneManager.LoadSceneAsync(1,LoadSceneMode.Additive);
                 break;
+            case "Open_Setting":
+                setting_popup_open();
+                break;
+            case "Close_Setting":
+                setting_popup_close();
+                break;
             case "Sound":
                 Ref_SplashScreenUiManagar.Sound_Slidar();
                 break;
@@ -35,5 +42,14 @@ public class SphareScreenBtnManager : MonoBehaviour
                 Ref_SplashScreenUiManagar.Music_Icon();
                 break;
         }
+    }
+
+    public void setting_popup_open()
+    {
+        Ref_SplashScreenUiManagar.OpenSetting();
+    }
+    public void setting_popup_close()
+    {
+        Ref_SplashScreenUiManagar.CloseSetting();
     }
 }
