@@ -20,7 +20,7 @@ public class SphareScreenBtnManager : MonoBehaviour
         switch (button)
         {
             case "start":
-                SceneManager.LoadScene(1);
+                SceneManager.LoadSceneAsync(1,LoadSceneMode.Additive);
                 break;
             case "Sound":
                 Ref_SplashScreenUiManagar.Sound_Slidar();
