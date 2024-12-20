@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody2D rb;
+  
     public Transform Tm;
     public float speed;
-
+    public Transform StartPoint;
+    public Transform EndPoint;
+    public int direction = 1;
 
     void Start()
     {
@@ -17,16 +19,30 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
-        //        Debug.Log("Update Call");
-
-        rb.AddForce(new Vector2(speed, 0));
-        // Tm.Translate(new Vector3(speed, 0, 0));
+        MovePlayer();
+  
     }
 
+    Vector2 CurrentMovmentTarget()
+    {
+        if (direction == 1) { 
+            return StartPoint.position;
+        }
+        else
+        {
+            return EndPoint.position;
+        }
+    }
     public void MovePlayer()
     {
-        
+        Vector2 target = CurrentMovmentTarget();                                                                        
+        Tm.position = Vector2.Lerp(Tm.position , target,speed * Time.deltaTime);
+        float distance = (target - (Vector2)Tm.position).magnitude;  
+
+        if (distance <= 0.1f)
+        {
+            direction *= -1;    
+        }
     }
 
-
-}
+    }
