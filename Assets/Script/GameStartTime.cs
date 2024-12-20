@@ -9,7 +9,7 @@ public class GameStartTime : MonoBehaviour
     public TextMeshProUGUI textMeshProUGUI;
     
   
-    void Awake()
+    void Start()
     {
       StartCoroutine(StartTime());
         
@@ -20,17 +20,26 @@ public class GameStartTime : MonoBehaviour
 
         for (int i = startTime; i >= 0; i--)
         {
-        
-                yield return new WaitForSeconds(1);
-        
-            if (i == 0)
-                    {
-                        textMeshProUGUI.text = "Go!!";
 
-                    }else
-                    textMeshProUGUI.text = i.ToString();
+            if (i > 0)
+            {
+                textMeshProUGUI.text = i.ToString();
 
+            }
+            else
+            {
+                textMeshProUGUI.text = "Go!!";
+                
+                
+                break;
+            }
+            yield return new WaitForSeconds(1);
 
-                }
-    }   
+        }
+
+        yield return new WaitForSeconds(1);
+        textMeshProUGUI.gameObject.SetActive(false);
+        StopCoroutine(StartTime());
+
+    }
 }

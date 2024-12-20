@@ -63,4 +63,8 @@ public class StaticData
         }
     }
     #endregion
+
+
+    public static string GamePlayScene = "GamePlayScene";
+    public static string SplashScene = "SplashScene";
 }

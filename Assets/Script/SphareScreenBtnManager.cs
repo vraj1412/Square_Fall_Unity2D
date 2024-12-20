@@ -21,7 +21,7 @@ public class SphareScreenBtnManager : MonoBehaviour
         switch (button)
         {
             case "start":
-                SceneManager.LoadSceneAsync(1,LoadSceneMode.Additive);
+                SceneManager.LoadSceneAsync(StaticData.GamePlayScene);
                 break;
             case "Open_Setting":
                 setting_popup_open();
