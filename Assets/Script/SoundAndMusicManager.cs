@@ -9,7 +9,10 @@ public class SoundAndMusicManager : MonoBehaviour
 
     [HideInInspector]
     public static SoundAndMusicManager instance;
-
+    [Space]
+    [Header("SoundAndMusic Clip")]
+    public AudioClip Button_Clip;
+    public AudioClip BgMusic_Clip;
 
     #region Unity Function
     public void Awake()

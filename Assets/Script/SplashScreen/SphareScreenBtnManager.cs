@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SphareScreenBtnManager : MonoBehaviour
 {
-    public SphareScreenUiManager Ref_SplashScreenUiManagar;
+    public SphareScreenUiManager Ref_SphareScreenUiManagar;
     public SoundAndMusicManager soundandmusic;
 
     
@@ -16,7 +16,7 @@ public class SphareScreenBtnManager : MonoBehaviour
     }
     public void Button_Control(string button)
     {
-        soundandmusic.PlaySound(Ref_SplashScreenUiManagar.Button_Clip);
+        soundandmusic.PlaySound(soundandmusic.Button_Clip);
 
         switch (button)
         {
@@ -30,26 +30,26 @@ public class SphareScreenBtnManager : MonoBehaviour
                 setting_popup_close();
                 break;
             case "Sound":
-                Ref_SplashScreenUiManagar.Sound_Slidar();
+                Ref_SphareScreenUiManagar.Sound_Slidar();
                 break;
             case "Music":
-                Ref_SplashScreenUiManagar.Music_Slidar();
+                Ref_SphareScreenUiManagar.Music_Slidar();
                 break;
             case "Sound_Mute":
-                Ref_SplashScreenUiManagar.Sound_Icon();
+                Ref_SphareScreenUiManagar.Sound_Icon();
                 break;
             case "Music_Mute":
-                Ref_SplashScreenUiManagar.Music_Icon();
+                Ref_SphareScreenUiManagar.Music_Icon();
                 break;
         }
     }
 
     public void setting_popup_open()
     {
-        Ref_SplashScreenUiManagar.OpenSetting();
+        Ref_SphareScreenUiManagar.OpenSetting();
     }
     public void setting_popup_close()
     {
-        Ref_SplashScreenUiManagar.CloseSetting();
+        Ref_SphareScreenUiManagar.CloseSetting();
     }
 }

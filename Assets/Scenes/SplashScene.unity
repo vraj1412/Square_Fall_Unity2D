@@ -1119,7 +1119,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1227,7 +1227,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1478245652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d936af81e0cb62f48a5098f28299d95f, type: 3}
+  m_Script: {fileID: 11500000, guid: 223a491a190ba0a4aaf32bf159008915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SettingPopUp: {fileID: 1406436554}
@@ -1239,8 +1239,6 @@ MonoBehaviour:
   MusicSprite: {fileID: 21300000, guid: 47af1b01eb27e40bd98ef32f898bc38d, type: 3}
   MuteSoundSprite: {fileID: 21300000, guid: ade0b463884fb3c4e8e09864325d74d6, type: 3}
   MuteMusicSprite: {fileID: 21300000, guid: ffe5bee12ef8e6a4084d646e5d02599c, type: 3}
-  Button_Clip: {fileID: 8300000, guid: 1ca1d283f56be9b418e323ac31ea07da, type: 3}
-  BgMusic_Clip: {fileID: 8300000, guid: 0be6a8326cc3bf04a970b079f34f000b, type: 3}
   Ref_SoundAndMusicManager: {fileID: 1999210193}
 --- !u!4 &1478245654
 Transform:
@@ -1286,7 +1284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0abf6f294a00d24688004ada07e5da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ref_SplashScreenUiManagar: {fileID: 1478245653}
+  Ref_SphareScreenUiManagar: {fileID: 1478245653}
   soundandmusic: {fileID: 1999210193}
 --- !u!4 &1523941263
 Transform:
@@ -2700,6 +2698,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundAudioSource: {fileID: 1895227886}
   MusicAudioSource: {fileID: 1432967167}
+  Button_Clip: {fileID: 8300000, guid: 1ca1d283f56be9b418e323ac31ea07da, type: 3}
+  BgMusic_Clip: {fileID: 8300000, guid: 0be6a8326cc3bf04a970b079f34f000b, type: 3}
 --- !u!4 &1999210194
 Transform:
   m_ObjectHideFlags: 0

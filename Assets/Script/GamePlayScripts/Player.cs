@@ -12,11 +12,7 @@ public class Player : MonoBehaviour
     public Transform EndPoint;
     public int direction = 1;
 
-    void Start()
-    {
-        
-    }
-
+    
     public void Update()
     {
         MovePlayer();
@@ -36,7 +32,7 @@ public class Player : MonoBehaviour
     public void MovePlayer()
     {
         Vector2 target = CurrentMovmentTarget();                                                                        
-        Tm.position = Vector2.Lerp(Tm.position , target,speed * Time.deltaTime);
+        Tm.position = Vector2.MoveTowards(Tm.position , target,speed * Time.deltaTime);
         float distance = (target - (Vector2)Tm.position).magnitude;  
 
         if (distance <= 0.1f)

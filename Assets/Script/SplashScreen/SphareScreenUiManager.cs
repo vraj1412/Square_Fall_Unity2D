@@ -22,10 +22,7 @@ public class SphareScreenUiManager : MonoBehaviour
     public Sprite MuteSoundSprite;
     public Sprite MuteMusicSprite;
 
-    [Space]
-    [Header("SoundAndMusic Clip")]
-    public AudioClip Button_Clip;
-    public AudioClip BgMusic_Clip;
+    
 
     private float temp;
 
@@ -42,7 +39,7 @@ public class SphareScreenUiManager : MonoBehaviour
         MusicSlider.value = StaticData.Music;
 
         SetSoundAndMusicValue();
-        Ref_SoundAndMusicManager.PlayMusic(BgMusic_Clip);
+        Ref_SoundAndMusicManager.PlayMusic(Ref_SoundAndMusicManager.BgMusic_Clip);
     }
 
     #region SettingPopUP Open Close
@@ -56,6 +53,7 @@ public class SphareScreenUiManager : MonoBehaviour
     }
 
     #endregion
+
     #region Sound And Music Function
     public void Sound_Slidar()
     {
