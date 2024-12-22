@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GamePlayUiManager : MonoBehaviour
 {
+
     [Header("SettingPopUp")]
     public GameObject SettingPopUp;
     [Space]

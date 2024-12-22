@@ -5,23 +5,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-  
+
     public Transform Tm;
     public float speed;
     public Transform StartPoint;
     public Transform EndPoint;
     public int direction = 1;
 
-    
+
     public void Update()
     {
         MovePlayer();
-  
-    }
+        MovePlayerByTouch();
 
+    }
+   
     Vector2 CurrentMovmentTarget()
     {
-        if (direction == 1) { 
+        if (direction == 1)
+        {
             return StartPoint.position;
         }
         else
@@ -31,14 +33,23 @@ public class Player : MonoBehaviour
     }
     public void MovePlayer()
     {
-        Vector2 target = CurrentMovmentTarget();                                                                        
-        Tm.position = Vector2.MoveTowards(Tm.position , target,speed * Time.deltaTime);
-        float distance = (target - (Vector2)Tm.position).magnitude;  
+        Vector2 target = CurrentMovmentTarget();
+        Tm.position = Vector2.MoveTowards(Tm.position, target, speed * Time.deltaTime);
+        float distance = (target - (Vector2)Tm.position).magnitude;
 
         if (distance <= 0.1f)
         {
-            direction *= -1;    
+            direction *= -1;
         }
     }
 
+    public void MovePlayerByTouch()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            direction *= -1;
+        }
+
     }
+  
+}
