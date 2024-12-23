@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public Transform Tm;
+    public Transform PlayerTransform;
     public float speed;
     public Transform StartPoint;
     public Transform EndPoint;
@@ -34,8 +34,8 @@ public class Player : MonoBehaviour
     public void MovePlayer()
     {
         Vector2 target = CurrentMovmentTarget();
-        Tm.position = Vector2.MoveTowards(Tm.position, target, speed * Time.deltaTime);
-        float distance = (target - (Vector2)Tm.position).magnitude;
+        PlayerTransform.position = Vector2.MoveTowards(PlayerTransform.position, target, speed * Time.deltaTime);
+        float distance = (target - (Vector2)PlayerTransform.position).magnitude;
 
         if (distance <= 0.1f)
         {

@@ -2088,7 +2088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d81dcf5418a394db6d746d6ae7efee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tm: {fileID: 475083354}
+  PlayerTransform: {fileID: 475083354}
   speed: 2
   StartPoint: {fileID: 1547819656}
   EndPoint: {fileID: 27416549}
@@ -2291,8 +2291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0787c2be23a0974ea71d3b63f3a34d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GamePlayUiManager: {fileID: 501482134}
-  SoundAndMusicManager: {fileID: 1966856311}
 --- !u!4 &1554606773
 Transform:
   m_ObjectHideFlags: 0
