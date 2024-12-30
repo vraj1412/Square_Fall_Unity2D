@@ -1,55 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
-//using System.Diagnostics;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-    public Transform PlayerTransform;
+    #region Varibal
+    [Header("Varibal")]
     public float speed;
-    public Transform StartPoint;
-    public Transform EndPoint;
-    public int direction = 1;
+    public Vector2 LeftPostion;
+    public Vector2 RightPostion;
+
+    [Space]
+    [Header("Ref_Scrpit")]
+    public GamePlay Ref_GamePlay;
+
+    #endregion
 
 
-    public void Update()
+
+
+    private void Update()
     {
-        MovePlayer();
-        MovePlayerByTouch();
+        if (Input.GetMouseButtonDown(0) && StaticData.Player_Touch == 0)
+        {
+            // Debug.Log("S Test Ok");
+            Ref_GamePlay.Ref_GamePlayUiManager.Play_TouchSound();
+            //Ref_GamePlay.Ref_SoundAndMusic.PlayTouch(Ref_GamePlay.Ref_GamePlayUiManager.Click_Clip);
+            speed *= -1;
+        }
+        PlayerMovedByTouch();
 
     }
-   
-    Vector2 CurrentMovmentTarget()
-    {
-        if (direction == 1)
-        {
-            return StartPoint.position;
-        }
-        else
-        {
-            return EndPoint.position;
-        }
-    }
-    public void MovePlayer()
-    {
-        Vector2 target = CurrentMovmentTarget();
-        PlayerTransform.position = Vector2.MoveTowards(PlayerTransform.position, target, speed * Time.deltaTime);
-        float distance = (target - (Vector2)PlayerTransform.position).magnitude;
 
-        if (distance <= 0.1f)
-        {
-            direction *= -1;
-        }
+    private void FixedUpdate()
+    {
+        PlayerMove();
+
     }
 
-    public void MovePlayerByTouch()
+
+    public void PlayerMove()
+    {
+
+        if (transform.position.x >= RightPostion.x || transform.position.x <= LeftPostion.x)
+        {
+            speed *= -1;
+        }
+        transform.Translate(speed * Vector3.right * Time.fixedDeltaTime);
+
+
+    }
+    public void PlayerMovedByTouch()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            direction *= -1;
-        }
 
+            speed *= -1;
+        }
     }
-  
 }
