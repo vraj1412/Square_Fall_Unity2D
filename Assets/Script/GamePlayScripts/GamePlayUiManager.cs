@@ -18,9 +18,8 @@ public class GamePlayUiManager : MonoBehaviour
 
     [Header("Audio_Clip")]
     public AudioClip BG_clip;
-    public AudioClip Obstacl_Clip;
-    public AudioClip UnObstcl_Clip;
     public AudioClip Click_Clip;
+    
     [Space]
     [Header("Sprite")]
     public Sprite Obstacal_Sprite;
@@ -29,7 +28,7 @@ public class GamePlayUiManager : MonoBehaviour
 
     [Space]
     [Header("GameOver_PopUp")]
-    public GameObject GameOverPopUP;
+   // public GameObject GameOverPopUP;
     public TextMeshProUGUI ScoreText;
 
     [Space]
@@ -69,12 +68,12 @@ public class GamePlayUiManager : MonoBehaviour
     public void GameOverPopUp_Open()
     {
         ScoreText.text = (StaticData.Score).ToString();
-        GameOverPopUP.SetActive(true);
+       // GameOverPopUP.SetActive(true);
     }
 
     public void GameOverPopUp_Close()
     {
-        GameOverPopUP.SetActive(false);
+      //  GameOverPopUP.SetActive(false);
     }
     #endregion
 
@@ -90,14 +89,7 @@ public class GamePlayUiManager : MonoBehaviour
         Ref_GamePlay.Ref_SoundAndMusic.PlayTouch(Click_Clip);
     }
 
-    public void Play_Obstacal()
-    {
-        Ref_GamePlay.Ref_SoundAndMusic.PlaySound(Obstacl_Clip);
-    }
-    public void Play_Unobstacal()
-    {
-        Ref_GamePlay.Ref_SoundAndMusic.PlaySound(UnObstcl_Clip);
-    }
+   
     #endregion
 
     #region Sound and Music Function

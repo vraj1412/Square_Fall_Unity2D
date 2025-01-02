@@ -30,11 +30,11 @@ public class Collidar : MonoBehaviour
                 //Debug.Log("Score" + StaticData.Score);
                 Ref_GamePlay.Ref_GamePlayUiManager.ScoreDispaly(StaticData.Score);
                 Ref_PrefabsObject.Deactive();
-                Ref_GamePlay.Ref_GamePlayUiManager.Play_Obstacal();
+               
             }
             else
             {
-                Ref_GamePlay.Ref_GamePlayUiManager.Play_Unobstacal();
+         
                 Ref_GamePlay.GameOver();
 
              }

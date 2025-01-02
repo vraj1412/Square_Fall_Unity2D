@@ -21,13 +21,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && StaticData.Player_Touch == 0)
-        {
-            // Debug.Log("S Test Ok");
-            Ref_GamePlay.Ref_GamePlayUiManager.Play_TouchSound();
-            //Ref_GamePlay.Ref_SoundAndMusic.PlayTouch(Ref_GamePlay.Ref_GamePlayUiManager.Click_Clip);
-            speed *= -1;
-        }
+        //if (Input.GetMouseButtonDown(0) && StaticData.Player_Touch == 0)
+        //{
+        //    // Debug.Log("S Test Ok");
+        //    Ref_GamePlay.Ref_GamePlayUiManager.Play_TouchSound();
+        //    //Ref_GamePlay.Ref_SoundAndMusic.PlayTouch(Ref_GamePlay.Ref_GamePlayUiManager.Click_Clip);
+        //    speed *= -1;
+        //}
         PlayerMovedByTouch();
 
     }

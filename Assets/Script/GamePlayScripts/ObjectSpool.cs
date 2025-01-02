@@ -35,11 +35,7 @@ public class ObjectSpool : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+   
 
     #endregion
 
