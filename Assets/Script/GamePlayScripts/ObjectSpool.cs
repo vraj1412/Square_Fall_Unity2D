@@ -16,16 +16,8 @@ public class ObjectSpool : MonoBehaviour
 
     #region Unity function
     public void Awake()
-    {
-        if (instance == null)
-        {
+    {   
             instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     void Start()
@@ -35,8 +27,11 @@ public class ObjectSpool : MonoBehaviour
 
     }
 
-   
 
+    public void OnDestroy()
+    {
+        Destroy(gameObject);
+    }
     #endregion
 
     #region Other Function

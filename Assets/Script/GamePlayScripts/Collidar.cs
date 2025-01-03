@@ -36,6 +36,7 @@ public class Collidar : MonoBehaviour
             {
          
                 Ref_GamePlay.GameOver();
+                Ref_GamePlay.HighScore();
 
              }
         }

@@ -8,6 +8,7 @@ public class SphareScreenBtnManager : MonoBehaviour
     public SphareScreenUiManager Ref_SphareScreenUiManagar;
     public SoundAndMusicManager soundandmusic;
 
+
     
 
     public void Start()

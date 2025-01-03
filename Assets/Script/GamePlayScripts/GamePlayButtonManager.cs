@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GamePlayButtonManager : MonoBehaviour
@@ -15,7 +16,7 @@ public class GamePlayButtonManager : MonoBehaviour
     }
     public void Button_Click(string button)
     {
-
+        //Debug.Log(button);
         switch (button)
         {
 
@@ -40,12 +41,10 @@ public class GamePlayButtonManager : MonoBehaviour
             case "Reload":
                 RePlay_Game();
                 break;
-            case "Left_ButtonClick":
-                Left_ButtonClick();
+            case "MainScreen":
+                MainScreen();
                 break;
-            case "Right_ButtonClick":
-                Right_ButtonClick();
-                break;
+
         }
     }
 
@@ -101,6 +100,7 @@ public class GamePlayButtonManager : MonoBehaviour
         Ref_GamePlay.Ref_GamePlayUiManager.GameOverPopUp_Open();
 
     }
+  
 
     public void SettingPopUp_Click()
     {
@@ -120,12 +120,9 @@ public class GamePlayButtonManager : MonoBehaviour
         Ref_GamePlay.GameStart();
     }
 
-    public void Left_ButtonClick()
+    public void MainScreen()
     {
-        Ref_GamePlay.Ref_Player.speed = -2;
+        SceneManager.LoadSceneAsync(0);
     }
-    public void Right_ButtonClick()
-    {
-        Ref_GamePlay.Ref_Player.speed = 2;
-    }
+   
 }

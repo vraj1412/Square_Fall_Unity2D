@@ -66,6 +66,15 @@ public class GamePlay : MonoBehaviour
 
     }
 
+    public void HighScore()
+    {
+        if (StaticData.Score > StaticData.HighScore)
+        {
+            StaticData.HighScore = StaticData.Score;
+        }
+
+    }
+
     public void GameStart()
     {
         StaticData.Score = 0;

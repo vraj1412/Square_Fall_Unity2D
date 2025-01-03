@@ -28,7 +28,7 @@ public class GamePlayUiManager : MonoBehaviour
 
     [Space]
     [Header("GameOver_PopUp")]
-   // public GameObject GameOverPopUP;
+    public GameObject GameOverPopUP;
     public TextMeshProUGUI ScoreText;
 
     [Space]
@@ -68,12 +68,12 @@ public class GamePlayUiManager : MonoBehaviour
     public void GameOverPopUp_Open()
     {
         ScoreText.text = (StaticData.Score).ToString();
-       // GameOverPopUP.SetActive(true);
+        GameOverPopUP.SetActive(true);
     }
 
     public void GameOverPopUp_Close()
     {
-      //  GameOverPopUP.SetActive(false);
+        GameOverPopUP.SetActive(false);
     }
     #endregion
 

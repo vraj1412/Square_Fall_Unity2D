@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,8 +22,11 @@ public class SphareScreenUiManager : MonoBehaviour
     public Sprite MusicSprite;
     public Sprite MuteSoundSprite;
     public Sprite MuteMusicSprite;
+    [Space]
+    [Header("Text")]
+    public TextMeshProUGUI HighScore;
 
-    
+
 
     private float temp;
 
@@ -163,5 +167,10 @@ public class SphareScreenUiManager : MonoBehaviour
     }
     #endregion
 
+
+    public void HighScoreSet(int Score)
+    {
+        HighScore.text= Score.ToString();
+    }
 
 }
