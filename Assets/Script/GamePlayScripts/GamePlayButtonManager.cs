@@ -7,16 +7,16 @@ using UnityEngine.UI;
 
 public class GamePlayButtonManager : MonoBehaviour
 {
-    //   public Button Button;
+   
     public GamePlay Ref_GamePlay;
 
     public void Start()
     {
-        // Button.transform.DOPunchScale(Vector3.one*1.2f,1); 
+
     }
     public void Button_Click(string button)
     {
-        //Debug.Log(button);
+        
         switch (button)
         {
 
@@ -98,6 +98,7 @@ public class GamePlayButtonManager : MonoBehaviour
     public void GameOverPopUp_Load()
     {
         Ref_GamePlay.Ref_GamePlayUiManager.GameOverPopUp_Open();
+        
 
     }
   

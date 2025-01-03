@@ -69,6 +69,7 @@ public class GamePlayUiManager : MonoBehaviour
     {
         ScoreText.text = (StaticData.Score).ToString();
         GameOverPopUP.SetActive(true);
+       
     }
 
     public void GameOverPopUp_Close()
