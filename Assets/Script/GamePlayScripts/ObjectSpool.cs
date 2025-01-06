@@ -56,7 +56,7 @@ public class ObjectSpool : MonoBehaviour
             }
         }
 
-        // Debug.Log("New One created");
+        
         InstanatiteCreate(1);
         objects[objects.Count - 1].Active();
     }

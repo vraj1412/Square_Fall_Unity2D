@@ -13,6 +13,7 @@ public class GamePlay : MonoBehaviour
     public SoundAndMusic Ref_SoundAndMusic;
     public GamePlayUiManager Ref_GamePlayUiManager;
     public GamePlayButtonManager Ref_GamePlayButtonManager;
+    
  
 
 
@@ -25,10 +26,9 @@ public class GamePlay : MonoBehaviour
         Ref_GamePlayUiManager.GameOverPopUp_Close();
         Ref_ObjectSpool = ObjectSpool.instance;
         Ref_SoundAndMusic = SoundAndMusic.instance;
-
-
+ 
         GameStart();
-        // StartCoroutine(ObstcalSpool());
+      
     }
 
     public void Update()
@@ -36,7 +36,7 @@ public class GamePlay : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
 
-            // Debug.Log("Obstacl Creat");
+            
             Ref_ObjectSpool.ActiveObject();
 
         }
@@ -45,7 +45,7 @@ public class GamePlay : MonoBehaviour
     }
 
 
-
+    
     public IEnumerator ObstcalSpool()
     {
         while (!IsGameOver)
