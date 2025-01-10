@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Net.Http.Headers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
+using Unity.VisualScripting.Antlr3.Runtime;
 public class GamePlayUiManager : MonoBehaviour
 {
 
@@ -31,9 +27,7 @@ public class GamePlayUiManager : MonoBehaviour
     public GameObject GameOverPopUP;
     public TextMeshProUGUI ScoreText;
 
-    [Space]
-    [Header("Setting_PopUp")]
-    public GameObject SettingPopUp;
+   
 
     [Space]
     [Header("Sound Componat")]
@@ -48,8 +42,17 @@ public class GamePlayUiManager : MonoBehaviour
     public Sprite MusicOn_Sprite;
     public Sprite MusicOff_Sprite;
 
-   
+    public Button settingBtn;
 
+    [Header("SettingPopUp")]
+    public Transform SettingPopUp_MainBG;
+    public Image SettingPopUp_AlphaBG;
+    public GameObject SettingPopUp_MainParent;
+
+    [Header("GameOverPopUp")]
+    public Transform GameOverPopUp_MainBG;
+    public Image GameOverPopUp_AlphaBG;
+    public GameObject GameOverPopUp_MainParent;
 
     [Space]
     [Header("Score")]
@@ -59,22 +62,23 @@ public class GamePlayUiManager : MonoBehaviour
     public void Start()
     {
         GameOverPopUp_Close();
-        SettingPopUp_Close();
+        CloseSetting();
 
-
+        settingBtn.onClick.AddListener(OpenSetting);
     }
 
     #region GameOver_PopUP Function
     public void GameOverPopUp_Open()
     {
         ScoreText.text = (StaticData.Score).ToString();
-        GameOverPopUP.SetActive(true);
-       
+        GameOverPopUPAnimation(true);
+
+
     }
 
     public void GameOverPopUp_Close()
     {
-        GameOverPopUP.SetActive(false);
+        GameOverPopUPAnimation(false);
     }
     #endregion
 
@@ -82,123 +86,45 @@ public class GamePlayUiManager : MonoBehaviour
     #region Sound,Music Clip_Function
     public void Play_BGMusic()
     {
-        Ref_GamePlay.Ref_SoundAndMusic.PlayMusic(BG_clip);
+        Ref_GamePlay.Ref_SoundAndMusicManager.PlayMusic(BG_clip);
     }
 
     public void Play_TouchSound()
     {
-        Ref_GamePlay.Ref_SoundAndMusic.PlayTouch(Click_Clip);
+        Ref_GamePlay.Ref_SoundAndMusicManager.PlaySound(Click_Clip);
     }
 
    
     #endregion
 
-    #region Sound and Music Function
-    public void SetSound()
+    
+
+
+
+
+
+    public void OpenSetting()
     {
-        // Ref_GamePlay.Ref_SoundAndMusic.SetSound_Volume(Sound_Slider.value);
-        //Ref_GamePlay.Ref_SoundAndMusic.Settouch_Volume(Sound_Slider.value);
+
         Sound_Slider.value = StaticData.Sound;
-        if (StaticData.MuteSound == 0)
-        {
-            Sound_on();
-        }
-        else
-        {
-            Sound_Off();
-        }
-    }
-
-    public void SetSound(float Volume)
-    {
-
-        Sound_Slider.value = Volume;
-    }
-
-    public void SetMusic()
-    {
-        //Ref_GamePlay.Ref_SoundAndMusic.SetMusic_Volume(Sound_Slider.value);
         Music_Slider.value = StaticData.Music;
-        if (StaticData.MuteMusic == 0)
-        {
-            Music_on();
-        }
-        else
-        {
-            Music_off();
-        }
-    }
-    public void SetMusic(float Volume)
-    {
-        //Ref_GamePlay.Ref_SoundAndMusic.SetMusic_Volume(Sound_Slider.value);
-        Music_Slider.value = Volume;
-    }
-    public void Sound_Slider_Click()
-    {
-        //StaticData.Sound = Sound_Slider.value;
-        //StaticData.Touch = Sound_Slider.value;
-        //Ref_GamePlay.Ref_SoundAndMusic.SoundAudioSource.volume = Sound_Slider.value;
-        //Ref_GamePlay.Ref_SoundAndMusic.TouchAudioSource.volume = Sound_Slider.value;
-        //Ref_GamePlay.Ref_SoundAndMusic.SetSound_Volume(Sound_Slider.value);
 
-        // Ref_GamePlay.Ref_SettingPopUp.SetSound_Volume(Sound_Slider.value);
-        Ref_GamePlay.Ref_SoundAndMusic.SetSound_Volume(Sound_Slider.value);
+        SetSoundAndMusicValue();
+        Ref_GamePlay.Ref_SoundAndMusicManager.PlayMusic(Ref_GamePlay.Ref_SoundAndMusicManager.BgMusic_Clip);
 
+      //  settingBtn.onClick.AddListener(OpenSetting);
+
+      
     }
 
-    public void Music_Slider_Click()
+    public void SettingPopUpOpen()
     {
-        //  Ref_GamePlay.Ref_SettingPopUp.SetMusic_Volume(Music_Slider.value);
-        //Ref_GamePlay.Ref_SoundAndMusic.SetMusic_Volume(Music_Slider.value);
-        //Ref_GamePlay.Ref_SoundAndMusic.MusicAudioSource.volume = Music_Slider.value;
-        Ref_GamePlay.Ref_SoundAndMusic.SetMusic_Volume(Music_Slider.value);
+        SettingPopUPAnimation(true);
     }
 
-    public void Sound_on()
+    public void CloseSetting()
     {
-        // Ref_GamePlay.Ref_SettingPopUp.SoundOn();
-        Ref_GamePlay.Ref_SoundAndMusic.SoundMute(false);
-        Sound_ImageSorce.sprite = SoundOn_Sprite;
-
-
-    }
-    public void Sound_Off()
-    {
-        Ref_GamePlay.Ref_SoundAndMusic.SoundMute(true);
-        Sound_ImageSorce.sprite = SoundOff_Sprite;
-        // Ref_GamePlay.Ref_SettingPopUp.SoundOff();
-    }
-
-    public void Music_on()
-    {
-        Ref_GamePlay.Ref_SoundAndMusic.MuiscMute(false);
-        Music_ImageSorce.sprite = MusicOn_Sprite;
-        //   Ref_GamePlay.Ref_SettingPopUp.MusicOn();
-    }
-    public void Music_off()
-    {
-        Ref_GamePlay.Ref_SoundAndMusic.MuiscMute(true);
-        Music_ImageSorce.sprite = MusicOff_Sprite;
-        //  Ref_GamePlay.Ref_SettingPopUp.MusicOff();
-    }
-
-    #endregion
-
-
-
-
-
-    public void SettingPopUp_Open()
-    {
-        SetSound();
-        SetMusic();
-        SettingPopUp.SetActive(true);
-    }
-
-    public void SettingPopUp_Close()
-    {
-
-        SettingPopUp.SetActive(false);
+        SettingPopUPAnimation(false);
     }
 
 
@@ -206,4 +132,154 @@ public class GamePlayUiManager : MonoBehaviour
     {
         Score_Text.text = Score.ToString();
     }
+
+
+    public void SettingPopUPAnimation(bool IsOpen)
+    {
+        if (IsOpen)
+        {
+            SettingPopUp_MainParent.SetActive(true);
+        }
+        SettingPopUp_AlphaBG.DOFade(IsOpen ? 0.8f : 0, 0.1f).From(IsOpen ? 0 : 0.8f);
+        SettingPopUp_MainBG.transform.DOScale(IsOpen ? Vector3.one : Vector3.zero, 0.2f).From(IsOpen ? Vector3.zero : Vector3.one)
+            .SetEase(IsOpen ? Ease.OutBack : Ease.InBack)
+            .OnComplete(() =>
+            {
+                if (!IsOpen)
+                {
+                    SettingPopUp_MainParent.SetActive(false);
+                }
+
+            });
+    }
+
+    public void GameOverPopUPAnimation(bool IsOpen)
+    {
+        if (IsOpen)
+        {
+            GameOverPopUp_MainParent.SetActive(true);
+        }
+        GameOverPopUp_AlphaBG.DOFade(IsOpen ? 0.8f : 0, 0.1f).From(IsOpen ? 0 : 0.8f);
+        GameOverPopUp_MainBG.transform.DOScale(IsOpen ? Vector3.one : Vector3.zero, 0.2f).From(IsOpen ? Vector3.zero : Vector3.one)
+            .SetEase(IsOpen ? Ease.OutBack : Ease.InBack)
+            .OnComplete(() =>
+            {
+                if (!IsOpen)
+                {
+                    SettingPopUp_MainParent.SetActive(false);
+                }
+
+            });
+    }
+
+
+
+
+
+    #region Sound And Music Function
+    public void Sound_Slidar()
+    {
+        StaticData.Sound = Sound_Slider.value;
+
+        Ref_GamePlay.Ref_SoundAndMusicManager.SetSound_Volume(Sound_Slider.value);
+        if (StaticData.Sound == 0)
+        {
+            SoundMute(true);
+        }
+        else
+        {
+            SoundMute(false);
+        }
+    }
+
+    public void Music_Slidar()
+    {
+        StaticData.Music = Music_Slider.value;
+        Ref_GamePlay.Ref_SoundAndMusicManager.SetMusic_Volume(Music_Slider.value);
+
+        if (StaticData.Music == 0)
+        {
+
+            MusicMute(true);
+        }
+        else
+        {
+            MusicMute(false);
+        }
+    }
+
+    public void Music_Icon()
+    {
+        if (StaticData.MuteMusic == 0)
+        {
+            MusicMute(true);
+        }
+        else
+        {
+            MusicMute(false);
+        }
+    }
+
+    public void Sound_Icon()
+    {
+        if (StaticData.MuteSound == 0)
+        {
+            SoundMute(true);
+        }
+        else
+        {
+            SoundMute(false);
+        }
+
+    }
+
+    public void SoundMute(bool mute)
+    {
+
+        if (mute)
+        {
+            StaticData.MuteSound = 1;
+            Sound_ImageSorce.sprite = SoundOff_Sprite;
+            Ref_GamePlay.Ref_SoundAndMusicManager.SoundMute(true);
+            Sound_Slider.value = 0;
+        }
+        else
+        {
+            StaticData.MuteSound = 0;
+            Sound_ImageSorce.sprite = SoundOn_Sprite;
+            Ref_GamePlay.Ref_SoundAndMusicManager.SoundMute(false);
+        }
+    }
+
+    public void MusicMute(bool mute)
+    {
+
+        if (mute)
+        {
+            //temp = MusicSlider.value;
+            StaticData.MuteMusic = 1;
+            Music_ImageSorce.sprite = MusicOff_Sprite;
+            Ref_GamePlay.Ref_SoundAndMusicManager.MuiscMute(true);
+            Music_Slider.value = 0;
+
+        }
+        else
+        {
+            //MusicSlider.value = temp;
+            StaticData.MuteMusic = 0;
+            Music_ImageSorce.sprite = MusicOn_Sprite;
+            Ref_GamePlay.Ref_SoundAndMusicManager.MuiscMute(false);
+
+        }
+    }
+
+    public void SetSoundAndMusicValue()
+    {
+
+        SoundMute(StaticData.MuteSound != 0);
+        MusicMute(StaticData.MuteMusic != 0);
+
+
+    }
 }
+#endregion

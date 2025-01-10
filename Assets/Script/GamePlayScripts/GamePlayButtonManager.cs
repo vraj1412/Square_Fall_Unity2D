@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -51,40 +52,44 @@ public class GamePlayButtonManager : MonoBehaviour
 
     public void Sound_Click()
     {
-        if (StaticData.MuteSound == 0)
-        {
-            Ref_GamePlay.Ref_GamePlayUiManager.Sound_Off();
-            // Ref_GamePlay.Ref_GamePlayUiManager.SetSound(0f);
-        }
-        else
-        {
-            Ref_GamePlay.Ref_GamePlayUiManager.Sound_on();
-            //Ref_GamePlay.Ref_GamePlayUiManager.SetSound(StaticData.Sound);
-        }
+        Ref_GamePlay.Ref_GamePlayUiManager.Sound_Icon();
+
+        //if (StaticData.MuteSound == 0)
+        //{
+        //    Ref_GamePlay.Ref_GamePlayUiManager.SoundMute(false);
+        //    // Ref_GamePlay.Ref_GamePlayUiManager.SetSound(0f);
+        //}
+        //else
+        //{
+        //    Ref_GamePlay.Ref_GamePlayUiManager.Sound_on();
+        //    //Ref_GamePlay.Ref_GamePlayUiManager.SetSound(StaticData.Sound);
+        //}
     }
 
     public void Music_Click()
     {
-        if (StaticData.MuteMusic == 0)
-        {
-            Ref_GamePlay.Ref_GamePlayUiManager.Music_off();
-            // Ref_GamePlay.Ref_GamePlayUiManager.SetMusic(0f);
-        }
-        else
-        {
-            Ref_GamePlay.Ref_GamePlayUiManager.Music_on();
-            //Ref_GamePlay.Ref_GamePlayUiManager.SetMusic(StaticData.Music);
-        }
+        Ref_GamePlay.Ref_GamePlayUiManager.Music_Icon();
+
+        //if (StaticData.MuteMusic == 0)
+        //{
+        //    Ref_GamePlay.Ref_GamePlayUiManager.Music_off();
+        //    // Ref_GamePlay.Ref_GamePlayUiManager.SetMusic(0f);
+        //}
+        //else
+        //{
+        //    Ref_GamePlay.Ref_GamePlayUiManager.Music_on();
+        //    //Ref_GamePlay.Ref_GamePlayUiManager.SetMusic(StaticData.Music);
+        //}
     }
 
     public void SoundSlidar_Click()
     {
-        Ref_GamePlay.Ref_GamePlayUiManager.Sound_Slider_Click();
+        Ref_GamePlay.Ref_GamePlayUiManager.Sound_Slidar();
     }
 
     public void MusicSlidar_Click()
     {
-        Ref_GamePlay.Ref_GamePlayUiManager.Music_Slider_Click();
+        Ref_GamePlay.Ref_GamePlayUiManager.Music_Slidar();
     }
 
 
@@ -106,12 +111,12 @@ public class GamePlayButtonManager : MonoBehaviour
     public void SettingPopUp_Click()
     {
         Ref_GamePlay.Game_Pause();
-        Ref_GamePlay.Ref_GamePlayUiManager.SettingPopUp_Open();
+        Ref_GamePlay.Ref_GamePlayUiManager.SettingPopUpOpen();
     }
 
     public void SettingPopUp_Close()
     {
-        Ref_GamePlay.Ref_GamePlayUiManager.SettingPopUp_Close();
+        Ref_GamePlay.Ref_GamePlayUiManager.CloseSetting();
         Ref_GamePlay.Game_Play();
     }
 

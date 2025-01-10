@@ -10,7 +10,7 @@ public class GamePlay : MonoBehaviour
     public static GamePlay instance;
     public Player Ref_Player;
 
-    public SoundAndMusic Ref_SoundAndMusic;
+    public SoundAndMusicManager Ref_SoundAndMusicManager;
     public GamePlayUiManager Ref_GamePlayUiManager;
     public GamePlayButtonManager Ref_GamePlayButtonManager;
  
@@ -22,10 +22,10 @@ public class GamePlay : MonoBehaviour
     }
     public void Start()
     {
+      //  Ref_SoundAndMusic = SoundAndMusic.instance;
         Ref_GamePlayUiManager.GameOverPopUp_Close();
         Ref_ObjectSpool = ObjectSpool.instance;
-        Ref_SoundAndMusic = SoundAndMusic.instance;
-
+        Ref_SoundAndMusicManager = SoundAndMusicManager.instance;
 
         GameStart();
         // StartCoroutine(ObstcalSpool());
@@ -78,6 +78,7 @@ public class GamePlay : MonoBehaviour
     public void GameStart()
     {
         StaticData.Score = 0;
+        Ref_GamePlayUiManager.ScoreDispaly(StaticData.Score);
         Game_Play();
     }
 

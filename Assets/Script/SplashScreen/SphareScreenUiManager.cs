@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,7 +8,12 @@ using UnityEngine.UI;
 public class SphareScreenUiManager : MonoBehaviour
 {
     [Header("SettingPopUp")]
-    public GameObject SettingPopUp;
+    public Transform SettingPopUp_MainBG;
+    public Image SettingPopUp_AlphaBG;
+    public GameObject SettingPopUp_MainParent;
+
+
+
     [Space]
     [Header("Slider")]
     public Slider SoundSlider;
@@ -26,7 +32,7 @@ public class SphareScreenUiManager : MonoBehaviour
     [Header("Text")]
     public TextMeshProUGUI HighScore;
 
-
+    public Button settingBtn;
 
     private float temp;
 
@@ -44,16 +50,19 @@ public class SphareScreenUiManager : MonoBehaviour
 
         SetSoundAndMusicValue();
         Ref_SoundAndMusicManager.PlayMusic(Ref_SoundAndMusicManager.BgMusic_Clip);
+
+        settingBtn.onClick.AddListener(OpenSetting);
+        
     }
 
     #region SettingPopUP Open Close
     public void OpenSetting()
     {
-        SettingPopUp.SetActive(true);
+        SettingPopUPAnimation(true);
     }
     public void CloseSetting()
     {
-        SettingPopUp.SetActive(false);
+        SettingPopUPAnimation(false);
     }
 
     #endregion
@@ -173,4 +182,22 @@ public class SphareScreenUiManager : MonoBehaviour
         HighScore.text= Score.ToString();
     }
 
+    public void SettingPopUPAnimation(bool IsOpen)
+    {
+        if(IsOpen)
+        {
+            SettingPopUp_MainParent.SetActive(true);
+        }
+        SettingPopUp_AlphaBG.DOFade(IsOpen ? 0.8f:0 , 0.1f).From(IsOpen ? 0:0.8f );
+        SettingPopUp_MainBG.transform.DOScale(IsOpen ? Vector3.one:Vector3.zero, 0.2f).From(IsOpen ? Vector3.zero:Vector3.one)
+            .SetEase(IsOpen ? Ease.OutBack :Ease.InBack)
+            .OnComplete(()=>
+            {
+                if (!IsOpen)
+                {
+                    SettingPopUp_MainParent.SetActive(false);
+                }
+
+            });
+    }
 }
