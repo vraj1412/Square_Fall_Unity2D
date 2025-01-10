@@ -1575,9 +1575,11 @@ MonoBehaviour:
   SettingPopUp_MainBG: {fileID: 635774926}
   SettingPopUp_AlphaBG: {fileID: 8909767851571741005}
   SettingPopUp_MainParent: {fileID: 5310438070130429900}
+  Setting_GraphicRaycaster: {fileID: 7826997667198158291}
   GameOverPopUp_MainBG: {fileID: 1971805458}
   GameOverPopUp_AlphaBG: {fileID: 821087432}
   GameOverPopUp_MainParent: {fileID: 2115997516}
+  GameOver_GraphicRaycaster: {fileID: 2115997519}
   Score_Text: {fileID: 1972481563}
 --- !u!1 &523756517
 GameObject:

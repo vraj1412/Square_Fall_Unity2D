@@ -24,6 +24,7 @@ public class GamePlay : MonoBehaviour
     {
       //  Ref_SoundAndMusic = SoundAndMusic.instance;
         Ref_GamePlayUiManager.GameOverPopUp_Close();
+        Ref_GamePlayUiManager.CloseSetting();
         Ref_ObjectSpool = ObjectSpool.instance;
         Ref_SoundAndMusicManager = SoundAndMusicManager.instance;
 

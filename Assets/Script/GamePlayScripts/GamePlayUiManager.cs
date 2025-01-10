@@ -48,12 +48,14 @@ public class GamePlayUiManager : MonoBehaviour
     public Transform SettingPopUp_MainBG;
     public Image SettingPopUp_AlphaBG;
     public GameObject SettingPopUp_MainParent;
+    public GraphicRaycaster Setting_GraphicRaycaster;
+
 
     [Header("GameOverPopUp")]
     public Transform GameOverPopUp_MainBG;
     public Image GameOverPopUp_AlphaBG;
     public GameObject GameOverPopUp_MainParent;
-
+    public GraphicRaycaster GameOver_GraphicRaycaster;
     [Space]
     [Header("Score")]
     public TextMeshProUGUI Score_Text;
@@ -138,6 +140,7 @@ public class GamePlayUiManager : MonoBehaviour
     {
         if (IsOpen)
         {
+            Setting_GraphicRaycaster.enabled = true;
             SettingPopUp_MainParent.SetActive(true);
         }
         SettingPopUp_AlphaBG.DOFade(IsOpen ? 0.8f : 0, 0.1f).From(IsOpen ? 0 : 0.8f);
@@ -147,6 +150,7 @@ public class GamePlayUiManager : MonoBehaviour
             {
                 if (!IsOpen)
                 {
+                    Setting_GraphicRaycaster.enabled = false;
                     SettingPopUp_MainParent.SetActive(false);
                 }
 
@@ -157,6 +161,7 @@ public class GamePlayUiManager : MonoBehaviour
     {
         if (IsOpen)
         {
+            GameOver_GraphicRaycaster.enabled = true;
             GameOverPopUp_MainParent.SetActive(true);
         }
         GameOverPopUp_AlphaBG.DOFade(IsOpen ? 0.8f : 0, 0.1f).From(IsOpen ? 0 : 0.8f);
@@ -166,6 +171,7 @@ public class GamePlayUiManager : MonoBehaviour
             {
                 if (!IsOpen)
                 {
+                    GameOver_GraphicRaycaster.enabled = false;
                     SettingPopUp_MainParent.SetActive(false);
                 }
 
