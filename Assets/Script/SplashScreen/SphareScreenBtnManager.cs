@@ -8,11 +8,11 @@ public class SphareScreenBtnManager : MonoBehaviour
     public SphareScreenUiManager Ref_SphareScreenUiManagar;
     public SoundAndMusicManager soundandmusic;
 
-
     
 
     public void Start()
     {
+        
         soundandmusic = SoundAndMusicManager.instance;
     }
     public void Button_Control(string button)
@@ -42,6 +42,11 @@ public class SphareScreenBtnManager : MonoBehaviour
             case "Music_Mute":
                 Ref_SphareScreenUiManagar.Music_Icon();
                 break;
+            case "start1":
+                //GoogleAds.ShowRewardedAd();
+               
+                break;
+
         }
     }
 

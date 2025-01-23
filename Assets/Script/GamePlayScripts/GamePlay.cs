@@ -13,6 +13,7 @@ public class GamePlay : MonoBehaviour
     public SoundAndMusicManager Ref_SoundAndMusicManager;
     public GamePlayUiManager Ref_GamePlayUiManager;
     public GamePlayButtonManager Ref_GamePlayButtonManager;
+    
  
 
 
@@ -27,6 +28,7 @@ public class GamePlay : MonoBehaviour
         Ref_GamePlayUiManager.CloseSetting();
         Ref_ObjectSpool = ObjectSpool.instance;
         Ref_SoundAndMusicManager = SoundAndMusicManager.instance;
+        
 
         GameStart();
         // StartCoroutine(ObstcalSpool());
@@ -82,7 +84,7 @@ public class GamePlay : MonoBehaviour
         Ref_GamePlayUiManager.ScoreDispaly(StaticData.Score);
         Game_Play();
     }
-
+    
     public void Game_Pause()
     {
         IsGameOver = true;
