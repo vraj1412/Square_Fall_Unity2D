@@ -329,8 +329,10 @@ public class GoogleAds : MonoBehaviour
 
         RewardedAd.Load(rewardedld, adRequest, (RewardedAd ad, LoadAdError err) =>
         {
+            
             if (err != null || ad == null)
             {
+                Debug.Log("ad run");
                 Debug.LogWarning("Reward Fail To Load Add!");
                 result = false;
                 return;

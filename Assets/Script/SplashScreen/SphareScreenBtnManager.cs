@@ -7,12 +7,13 @@ public class SphareScreenBtnManager : MonoBehaviour
 {
     public SphareScreenUiManager Ref_SphareScreenUiManagar;
     public SoundAndMusicManager soundandmusic;
+    public GoogleAds GoogleAds;
 
     
 
     public void Start()
     {
-        
+        GoogleAds = GoogleAds.instance;
         soundandmusic = SoundAndMusicManager.instance;
     }
     public void Button_Control(string button)
@@ -43,7 +44,7 @@ public class SphareScreenBtnManager : MonoBehaviour
                 Ref_SphareScreenUiManagar.Music_Icon();
                 break;
             case "start1":
-                //GoogleAds.ShowRewardedAd();
+                GoogleAds.ShowRewardedAd();
                
                 break;
 
