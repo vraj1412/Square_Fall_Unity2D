@@ -9,6 +9,7 @@ public class GamePlay : MonoBehaviour
     public bool IsGameOver = false;
     public static GamePlay instance;
     public Player Ref_Player;
+    public GoogleAds Ref_GoogleAds; 
 
     public SoundAndMusicManager Ref_SoundAndMusicManager;
     public GamePlayUiManager Ref_GamePlayUiManager;
@@ -28,7 +29,7 @@ public class GamePlay : MonoBehaviour
         Ref_GamePlayUiManager.CloseSetting();
         Ref_ObjectSpool = ObjectSpool.instance;
         Ref_SoundAndMusicManager = SoundAndMusicManager.instance;
-        
+        Ref_GoogleAds = GoogleAds.instance;
 
         GameStart();
         // StartCoroutine(ObstcalSpool());
@@ -83,6 +84,7 @@ public class GamePlay : MonoBehaviour
         StaticData.Score = 0;
         Ref_GamePlayUiManager.ScoreDispaly(StaticData.Score);
         Game_Play();
+        Ref_GoogleAds.ShowBannerAd();
     }
     
     public void Game_Pause()

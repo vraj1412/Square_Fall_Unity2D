@@ -10,9 +10,11 @@ public class GamePlayButtonManager : MonoBehaviour
 {
    
     public GamePlay Ref_GamePlay;
+    public GoogleAds Ref_GoogleAds;
 
     public void Start()
     {
+        Ref_GoogleAds = GoogleAds.instance;
 
     }
     public void Button_Click(string button)
@@ -125,6 +127,8 @@ public class GamePlayButtonManager : MonoBehaviour
       
         Ref_GamePlay.Ref_GamePlayUiManager.GameOverPopUp_Close();
         Ref_GamePlay.GameStart();
+        Ref_GoogleAds.ShowRewardedAd();
+
     }
 
     public void MainScreen()
